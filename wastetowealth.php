@@ -42,5 +42,5 @@
             <h2>Marketplace</h2>
             <p>Explore a wide range of upcycled and recycled products. From furniture to fashion, every product supports sustainability.</p>
             <button href="wastetowealth.html" class="button">Visit Marketplace</button>
-    </body>
-        </html>
+     </body>
+</html>
