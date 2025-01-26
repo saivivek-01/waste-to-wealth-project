@@ -16,9 +16,10 @@
         <a href="#about">About</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#marketplace">Marketplace</a>
-        <a href="#contact">Contact</a>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        
+        <a href="wastetowealth.html#login">Login</a>
+        <a href="wastetowealth.html#register">Register</a>
+        <a href="wastetowealth.html#contact">Contact</a>
     </nav>
 
     <div class="container">
@@ -40,50 +41,5 @@
         <section id="marketplace" class="section">
             <h2>Marketplace</h2>
             <p>Explore a wide range of upcycled and recycled products. From furniture to fashion, every product supports sustainability.</p>
-            <button class="button">Visit Marketplace</button>
+            <button href="wastetowealth.html" class="button">Visit Marketplace</button>
             <?php
-$search = $_GET['search'] ?? '';
-
-$stmt = $conn->prepare("SELECT * FROM listings WHERE title LIKE ?");
-$searchTerm = "%$search%";
-$stmt->bind_param("s", $searchTerm);
-$stmt->execute();
-$listings = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-?>
-<form method="GET">
-    <input type="text" name="search" placeholder="Search listings..." value="<?= htmlspecialchars($search) ?>">
-    <button type="submit">Search</button>
-</form>
-<table>
-    <?php foreach ($listings as $listing): ?>
-    <tr>
-        <td><?= htmlspecialchars($listing['title']) ?></td>
-        <td><img src="<?= htmlspecialchars($listing['image_path']) ?>" alt="Image" width="50"></td>
-    </tr>
-    <?php endforeach; ?>
-</table>
-
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to partner with us? Reach out to our team.</p>
-            <form action="/contact" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br>
-                <button type="submit" class="button">Send Message</button>
-            </form>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Waste-to-Wealth Marketplace. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
